@@ -1,0 +1,22 @@
+{
+  "name": "fastify-websocket-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --trace-warnings index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^3.25.3",
+    "fastify-static": "^4.5.0",
+    "fastify-websocket": "^4.0.0",
+    "mqemitter": "^4.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

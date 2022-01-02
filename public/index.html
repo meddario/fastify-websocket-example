@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Websocket test</title>
+
+    <link rel="stylesheet" href="assets/styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="join-room-form">
+        <h1>Join room</h1>
+        <div>
+          <label for="room-name">Room name:</label>
+          <input id="room-name" type="text" />
+        </div>
+
+        <div>
+          <label for="participant-name">Participant name:</label>
+          <input id="participant-name" type="text" />
+        </div>
+
+        <input
+          type="submit"
+          name="join-room"
+          id="join-room-btn"
+          value="Join room"
+        />
+      </form>
+
+      <h1 id="room-joined"></h1>
+
+      <div id="chat-container">
+        <div id="messages-container"></div>
+
+        <div id="compose-message">
+          <form id="send-message-form">
+            <div>
+              <label for="message-text">Insert message:</label>
+              <input id="message-text" type="text" />
+            </div>
+
+            <input
+              type="submit"
+              name="send-message"
+              id="send-message-btn"
+              value="Send message"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/index.js"></script>
+    <script>
+      window.onload = function () {
+        setupChat();
+      };
+    </script>
+  </body>
+</html>
