@@ -74,6 +74,35 @@ async function setupFastify() {
         });
       }
     );
+
+    // Test from devtools with:
+    // fetch("http://localhost:3000/test-message", {
+    //   method: "POST",
+    //   mode: "cors",
+    //   headers: { "content-type": "application/json" },
+    //   body: JSON.stringify({
+    //     participant: "Frank",
+    //     room: "my room",
+    //     text: "test text",
+    //   }),
+    // });
+    instance.post("/test-message", (request, reply) => {
+      reply.type("application/json").code(200);
+
+      emitter.emit({
+        topic: "room-event",
+        meta: "send-message",
+        room: request.body.room,
+        broadCast: true,
+        payload: {
+          participant: request.body.participant,
+          text: request.body.text,
+          timestamp: new Date(),
+        },
+      });
+
+      return { success: true };
+    });
   });
 
   await fastify.ready();
